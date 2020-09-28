@@ -33,6 +33,7 @@ public class student {
 
     public void setName(String nm) {
         name = nm;
+        
     }
 
     public String getName() { //Get a student's name 
@@ -41,11 +42,11 @@ public class student {
 
     public void setScore(int i, int score) { //Set test i to score 
         if (i == 1) {
-            test1 = score;
+            this.test1 = score;
         } else if (i == 2) {
-            test2 = score;
-        } else {
-            test3 = score;
+            this.test2 = score;
+        } else if (i == 3) {
+            this.test3 = score;
         }
     }
 
@@ -55,13 +56,16 @@ public class student {
         }
         if (i == 2) {
             return test2;
-        } else {
+        } 
+        else if (i == 3) {
             return test3;
         }
+        return 0;
     }
+    int average;
 
     public int getavg() {
-        int average;
+
         average = (int) Math.round((test1 + test2 + test3) / 3.0);
         return average;
     }
@@ -79,14 +83,35 @@ public class student {
 
     }
 
+    public String validatedata() {
+        String em = null;
+        if (name.equals("")) {
+            em = "Name is required";
+        }
+        if(test1<0 || test1>100 ||test2<0 || test2>100 || test3<0 || test3>100){
+         if (em != null) {
+            em = "1 of the marks are invalid";
+        }
+         else{
+         
+         em += "\n 1 of the marks are invalid";}
+        
+        }
+        if (em != null) {
+            em += "\n Re-enter all data";
+        }
+        return em;
+
+    }
+
     public String toString() {
         getavg();
         String str;
         str = "Name: " + name;
-        str += "Test 1:" + test1;
-        str += "Test 2:" + test2;
-        str += "Test 3:" + test2;
-        //str += "Average:" + average;
+        str += "\nTest 1:" + test1;
+        str += "\nTest 2:" + test2;
+        str += "\nTest 3:" + test3;
+        str += "\nAverage:" + average;
         return str;
 
     }
