@@ -5,17 +5,20 @@
  */
 package face;
 
-/**
- *
- * @author part8880
- */
+import java.awt.Color;
+import javax.swing.JColorChooser;
+
+
 public class faceform extends javax.swing.JFrame {
 
-    /**
-     * Creates new form faceform
-     */
+   Face f;
     public faceform() {
         initComponents();
+        f = new Face(jp.getGraphics(),100,100);
+        mb.setEnabled(false);
+        tb.setEnabled(false);
+        rb.setEnabled(false);
+        bcolor.setEnabled(false);
     }
 
     /**
@@ -28,11 +31,12 @@ public class faceform extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        mb = new javax.swing.JButton();
+        rb = new javax.swing.JButton();
+        tb = new javax.swing.JButton();
+        bcolor = new javax.swing.JButton();
+        jp = new javax.swing.JPanel();
+        setb = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -47,99 +51,124 @@ public class faceform extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Move Face");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        mb.setText("Move Face");
+        mb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                mbActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Resize Face");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        rb.setText("Resize Face");
+        rb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                rbActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Toggle Mood");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        tb.setText("Toggle Mood");
+        tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                tbActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Change Color");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        bcolor.setText("Change Color");
+        bcolor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                bcolorActionPerformed(evt);
             }
         });
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
+        jp.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpLayout = new javax.swing.GroupLayout(jp);
+        jp.setLayout(jpLayout);
+        jpLayout.setHorizontalGroup(
+            jpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 708, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jpLayout.setVerticalGroup(
+            jpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 422, Short.MAX_VALUE)
         );
+
+        setb.setText("Set Initail Face");
+        setb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setbActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(mb)
                         .addGap(86, 86, 86)
-                        .addComponent(jButton4)
+                        .addComponent(bcolor)
                         .addGap(78, 78, 78)
-                        .addComponent(jButton2)
+                        .addComponent(rb)
                         .addGap(88, 88, 88)
-                        .addComponent(jButton3)
-                        .addGap(86, 86, 86))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75))))
+                        .addComponent(tb)))
+                .addGap(86, 86, 86))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(251, 251, 251)
+                .addComponent(setb, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                    .addComponent(mb)
+                    .addComponent(rb)
+                    .addComponent(bcolor)
+                    .addComponent(tb))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(setb)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void mbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mbActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_mbActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void rbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_rbActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_tbActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void bcolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcolorActionPerformed
+        Color newcolor = JColorChooser.showDialog(this,"Pick new face color", Color.red);
+        
+        newcolor = JColorChooser.showDialog(this,"Pick new eye color", Color.red);
+        
+    }//GEN-LAST:event_bcolorActionPerformed
+
+    private void setbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setbActionPerformed
+        mb.setEnabled(true);
+        tb.setEnabled(true);
+        rb.setEnabled(true);
+        bcolor.setEnabled(true);
+        f.erase();
+        f = new Face(jp.getGraphics(),100,100);
+        f.draw();
+        
+    }//GEN-LAST:event_setbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,11 +206,12 @@ public class faceform extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton bcolor;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jp;
+    private javax.swing.JButton mb;
+    private javax.swing.JButton rb;
+    private javax.swing.JButton setb;
+    private javax.swing.JButton tb;
     // End of variables declaration//GEN-END:variables
 }

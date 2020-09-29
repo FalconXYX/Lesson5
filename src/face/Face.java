@@ -6,22 +6,23 @@ import java.awt.Graphics;
 public class Face {
 
     private int xPos, yPos, diameter;
-    private Color color;
+    private Color facecolor, eyecolor;
     private Graphics g;
     boolean ishappy;
 
     public Face(Graphics g, int x, int y) {
         xPos = x;
         yPos = y;
-        this.g = g; //default size and color 
+        
         diameter = 100;
-        color = Color.red;
+        facecolor = Color.red;
+        eyecolor = Color.yellow;
         ishappy = true;
     }
 
     public void draw() {
-        drawHead();
-        drawEyes();
+        drawHead(facecolor,xPos,yPos);
+        drawEyes(eyecolor);
         drawMouth();
     }
 
@@ -39,8 +40,14 @@ public class Face {
         }
     }
 
-    public void setcolor(Color c) {
+    public void setfacecolor(Color c) {
         g.setColor(c);
+        facecolor = c;
+    }
+    public void seteyecolor(Color c) {
+        g.setColor(c);
+        eyecolor = c;
+        
     }
 
     public void togglemood(Color c) {
@@ -49,5 +56,17 @@ public class Face {
         } else {
             ishappy = true;
         }
+    }
+    private void drawHead(Color c, int x, int y) {
+               
+       
+    }
+    private void drawEyes(Color c) {
+        
+       
+    }
+    private void drawMouth() {
+        
+       
     }
 }
