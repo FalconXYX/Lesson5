@@ -7,6 +7,7 @@ package face;
 
 import java.awt.Color;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 
 
 public class faceform extends javax.swing.JFrame {
@@ -36,7 +37,7 @@ public class faceform extends javax.swing.JFrame {
         tb = new javax.swing.JButton();
         bcolor = new javax.swing.JButton();
         jp = new javax.swing.JPanel();
-        setb = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,6 +80,7 @@ public class faceform extends javax.swing.JFrame {
             }
         });
 
+        jp.setBackground(new java.awt.Color(255, 255, 255));
         jp.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.lightGray));
 
         javax.swing.GroupLayout jpLayout = new javax.swing.GroupLayout(jp);
@@ -92,10 +94,10 @@ public class faceform extends javax.swing.JFrame {
             .addGap(0, 422, Short.MAX_VALUE)
         );
 
-        setb.setText("Set Initail Face");
-        setb.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setText("Set Initail Face");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                setbActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -118,7 +120,7 @@ public class faceform extends javax.swing.JFrame {
                 .addGap(86, 86, 86))
             .addGroup(layout.createSequentialGroup()
                 .addGap(251, 251, 251)
-                .addComponent(setb, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -133,7 +135,7 @@ public class faceform extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(setb)
+                .addComponent(jButton5)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -141,25 +143,38 @@ public class faceform extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mbActionPerformed
-        // TODO add your handling code here:
+        int newx = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter new x"));
+        int newy = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter new y"));
+        f.erase();
+        
+        f.move(newx, newy);
+        f.draw();
     }//GEN-LAST:event_mbActionPerformed
 
     private void rbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbActionPerformed
-        // TODO add your handling code here:
+        int newd = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter new Diameter"));
+        
+        f.erase();
+        f.setd(newd);
+        f.draw();
     }//GEN-LAST:event_rbActionPerformed
 
     private void tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbActionPerformed
-        // TODO add your handling code here:
+        f.togglemood();
+        f.erase();
+        f.draw();
     }//GEN-LAST:event_tbActionPerformed
 
     private void bcolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcolorActionPerformed
         Color newcolor = JColorChooser.showDialog(this,"Pick new face color", Color.red);
-        
+        f.setfacecolor(newcolor);
         newcolor = JColorChooser.showDialog(this,"Pick new eye color", Color.red);
-        
+        f.seteyecolor(newcolor);
+        f.erase();
+        f.draw();
     }//GEN-LAST:event_bcolorActionPerformed
 
-    private void setbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setbActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         mb.setEnabled(true);
         tb.setEnabled(true);
         rb.setEnabled(true);
@@ -168,7 +183,7 @@ public class faceform extends javax.swing.JFrame {
         f = new Face(jp.getGraphics(),100,100);
         f.draw();
         
-    }//GEN-LAST:event_setbActionPerformed
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,11 +222,11 @@ public class faceform extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bcolor;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jp;
     private javax.swing.JButton mb;
     private javax.swing.JButton rb;
-    private javax.swing.JButton setb;
     private javax.swing.JButton tb;
     // End of variables declaration//GEN-END:variables
 }

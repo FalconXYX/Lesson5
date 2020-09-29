@@ -58,7 +58,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
-              <Component id="setb" min="-2" pref="417" max="-2" attributes="0"/>
+              <Component id="jButton5" min="-2" pref="417" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -76,7 +76,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jp" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="setb" min="-2" max="-2" attributes="0"/>
+              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -117,6 +117,9 @@
     </Component>
     <Container class="javax.swing.JPanel" name="jp">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
             <EtchetBorder>
@@ -140,12 +143,12 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="javax.swing.JButton" name="setb">
+    <Component class="javax.swing.JButton" name="jButton5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Set Initail Face"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setbActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
