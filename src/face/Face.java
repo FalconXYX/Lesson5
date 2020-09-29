@@ -8,6 +8,7 @@ public class Face {
     private int xPos, yPos, diameter;
     private Color color;
     private Graphics g;
+    boolean ishappy;
 
     public Face(Graphics g, int x, int y) {
         xPos = x;
@@ -15,6 +16,7 @@ public class Face {
         this.g = g; //default size and color 
         diameter = 100;
         color = Color.red;
+        ishappy = true;
     }
 
     public void draw() {
@@ -29,7 +31,7 @@ public class Face {
     }
 
     public void move(int mx, int my) {
-        if (mx > 3 && mx < 6 ||my > 3 && my < 6 ) {
+        if (mx > 3 && mx < 6 || my > 3 && my < 6) {
             xPos = mx;
             yPos = my;
         } else {
@@ -37,4 +39,15 @@ public class Face {
         }
     }
 
+    public void setcolor(Color c) {
+        g.setColor(c);
+    }
+
+    public void togglemood(Color c) {
+        if (ishappy == true) {
+            ishappy = false;
+        } else {
+            ishappy = true;
+        }
+    }
 }
